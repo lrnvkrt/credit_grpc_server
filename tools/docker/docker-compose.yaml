@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-assessmentservice-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 45dq71
+      POSTGRES_DB: financial_models
+    ports:
+      - "5555:5432"
+    volumes:
+      - postgres_assessment_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+volumes:
+  postgres_assessment_data:
+
+networks:
+  postgres-network:
